@@ -53,6 +53,7 @@ const getSystemTheme = () => {
 };
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
+
   const [theme, setThemeState] = useState(getStoredTheme);
 
   const [systemTheme, setSystemTheme] = useState(getSystemTheme);
@@ -66,6 +67,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
     }
 
     setThemeState(theme);
+    localStorage.setItem(THEME_STORAGE_KEY,theme);
   }, []);
 
   useEffect(() => {

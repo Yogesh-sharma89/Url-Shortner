@@ -1450,6 +1450,9 @@ button:disabled,
   flex-direction: column;
   align-items: center;
   justify-content: center;
+ 
+ max-width: 1024px;
+ margin: 3rem auto;
 
   min-height: 240px;
   padding: var(--space-8);
@@ -1879,4 +1882,115 @@ button:disabled,
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+
+/* =========================================================
+   SKELETON SYSTEM
+   ========================================================= */
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+
+  background: var(--bg-tertiary);
+
+  border-radius: var(--radius-sm);
+}
+
+.skeleton::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.35) 50%,
+      transparent 100%
+    );
+
+  transform: translateX(-100%);
+
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+[data-theme="dark"] .skeleton::after {
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.06) 50%,
+      transparent 100%
+    );
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] .skeleton::after {
+    background:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.06) 50%,
+        transparent 100%
+      );
+  }
+}
+
+@keyframes skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-text {
+  height: 14px;
+  width: 100%;
+}
+
+.skeleton-text-sm {
+  height: 11px;
+  width: 60%;
+}
+
+.skeleton-text-lg {
+  height: 18px;
+  width: 45%;
+}
+
+.skeleton-button {
+  width: 72px;
+  height: 36px;
+  border-radius: var(--radius-md);
+}
+
+.skeleton-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.empty-state-icon {
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.empty-state:hover .empty-state-icon {
+  color: var(--color-primary);
+  background: var(--color-primary-50);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .empty-state:hover .empty-state-icon {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] .empty-state:hover .empty-state-icon {
+    background: rgba(59, 130, 246, 0.1);
+  }
 }
