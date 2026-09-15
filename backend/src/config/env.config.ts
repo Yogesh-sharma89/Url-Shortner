@@ -9,7 +9,8 @@ const EnvConfig = {
     db: {
         url: process.env["DB_URL"]!
     },
-    baseUrl:process.env["BASE_URL"]
+    baseUrl:process.env["BASE_URL"],
+    clientUrl:process.env["CLIENT_URL"]
 }
 
 export default EnvConfig;

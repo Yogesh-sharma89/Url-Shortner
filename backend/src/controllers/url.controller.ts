@@ -93,7 +93,7 @@ export const handleRedirect = asyncHandler(async (req, res) => {
     }
 
     //then update the db 
-    UrlModel.updateOne({ _id: urlRecord._id }, {
+   await  UrlModel.updateOne({ _id: urlRecord._id }, {
         $inc: { clicks: 1 }
     })
 
@@ -134,9 +134,17 @@ export const GetAllUrls = asyncHandler(async(req,res)=>{
 
     const allUrls =await UrlModel.find({}).sort({createdAt:-1}).lean();
 
+    const formattedUrls = allUrls.map((url)=>{
+        return {
+            ...url,
+            shortLink:`${EnvConfig.baseUrl}/${url.shortCode}`,
+            __v:undefined
+        }
+    })
+
     return res.status(200).json({
         success:true,
         message:"All urls fetched successfully",
-        urls:allUrls
+        urls:formattedUrls
     })
 })

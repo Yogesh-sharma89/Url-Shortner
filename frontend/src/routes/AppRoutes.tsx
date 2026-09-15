@@ -1,20 +1,24 @@
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router"
 import HomePage from "../features/Home/ui/pages/HomePage"
-import { Suspense } from "react"
+import { lazy, Suspense } from "react"
 import Loader from "../components/ui/Loader"
+
+const ErrorPage = lazy(()=>import("../features/Home/ui/components/ErrorPage"));
 
 const AppRoutes = ()=>{
 
     const router = createBrowserRouter([
         {
             path:"/",
-            element:<Navigate to={'/home'} replace/>
+            element:<Navigate to={'/home'} replace/>,
+            errorElement:<ErrorPage/>
         },
         {
             path:'/home',
             element:<Suspense fallback={<Loader/>}>
                 <HomePage/>
-            </Suspense>
+            </Suspense>,
+            errorElement:<ErrorPage/>
         }
     ])
 

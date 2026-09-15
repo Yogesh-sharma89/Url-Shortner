@@ -7,10 +7,9 @@ export const CreateUrlApi = async(url:string)=>{
     }
 
     try{
-
         const response = await api.post("/api/urls",{originalUrl:url});
 
-        return response.data.
+        return response.data.url;
 
     }catch(err:any){
         console.log("Error in create url api :",err.message);
