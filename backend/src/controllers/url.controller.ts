@@ -128,3 +128,15 @@ export const DeleteUrl = asyncHandler(async (req, res) => {
         urlId:validUrlId
     })
 })
+
+
+export const GetAllUrls = asyncHandler(async(req,res)=>{
+
+    const allUrls =await UrlModel.find({}).sort({createdAt:-1}).lean();
+
+    return res.status(200).json({
+        success:true,
+        message:"All urls fetched successfully",
+        urls:allUrls
+    })
+})
