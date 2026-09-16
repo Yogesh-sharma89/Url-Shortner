@@ -1,0 +1,25 @@
+{
+  "name": "url-shortner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:frontend": "npm run build --prefix frontend",
+    "build:backend":"npm run build --prefix backend",
+    "build":"npm run build:frontend && npm run build:backend",
+    "start":"npm run start --prefix backend",
+    "test:prod":"npm run build && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yogesh-sharma89/Url-Shortner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Yogesh-sharma89/Url-Shortner/issues"
+  },
+  "homepage": "https://github.com/Yogesh-sharma89/Url-Shortner#readme"
+}

@@ -130,7 +130,7 @@ export const DeleteUrl = asyncHandler(async (req, res) => {
 })
 
 
-export const GetAllUrls = asyncHandler(async(req,res)=>{
+export const GetAllUrls = asyncHandler(async(_req,res)=>{
 
     const allUrls =await UrlModel.find({}).sort({createdAt:-1}).lean();
 

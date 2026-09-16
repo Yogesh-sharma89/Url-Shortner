@@ -7,7 +7,7 @@ export const CreateUrlApi = async(url:string)=>{
     }
 
     try{
-        const response = await api.post("/api/urls",{originalUrl:url});
+        const response = await api.post("/",{originalUrl:url});
 
         return response.data.url;
 

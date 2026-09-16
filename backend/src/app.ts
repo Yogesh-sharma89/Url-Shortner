@@ -2,8 +2,7 @@ import express from 'express';
 import urlRouter from './routes/url.route.js';
 import GlobalErrorhandler from './middleware/errorHandler.js';
 import { handleRedirect } from './controllers/url.controller.js';
-import cors from 'cors';
-import EnvConfig from './config/env.config.js';
+
 import { fileURLToPath } from 'url';
 import path from "path";
 
@@ -13,16 +12,9 @@ const _filename = fileURLToPath(import.meta.url);
 const _dirname = path.dirname(_filename);
 
 
-
-
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 
-app.use(cors({
-    origin:[EnvConfig.clientUrl!],
-    methods:["GET","PUT","POST","DELETE","PATCH"],
-    credentials:true
-}))
 
 
 //routes
@@ -35,7 +27,18 @@ app.get("/api/health",(_req,res)=>{
     })
 })
 
+// frontend path 
+const frontendPath = path.join(_dirname,"../../frontend/dist");
+
+app.use(express.static(frontendPath))
+
+//get route
 app.get("/:shortCode",handleRedirect)
+
+//react fallback 
+app.get("/{*splat}",(_req,res)=>{
+    res.sendFile(path.join(frontendPath,"index.html"))
+})
 
 
 //global error handler
