@@ -32,7 +32,11 @@ const frontendPath = path.join(_dirname,"../../frontend/dist");
 
 app.use(express.static(frontendPath))
 
+app.get("/home", (_req, res) => {
+    res.sendFile(path.join(frontendPath, "index.html"));
+});
 //get route
+
 app.get("/:shortCode",handleRedirect)
 
 //react fallback 
