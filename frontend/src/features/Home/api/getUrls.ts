@@ -3,7 +3,7 @@ import api from "../../../utils/axios";
 const GetAllUrlsApi = async()=>{
     try{
 
-        const res = await api.get("/api/urls");
+        const res = await api.get("/");
         console.log(res.data.urls)
         return res.data.urls;
 

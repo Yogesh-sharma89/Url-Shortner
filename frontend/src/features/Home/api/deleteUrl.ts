@@ -8,7 +8,7 @@ const DeleteUrlApi = async(urlId:string)=>{
     }
 
     try{
-        const res  = await api.delete(`/api/urls/${urlId}`);
+        const res  = await api.delete(`/${urlId}`);
         return res.data;
 
     }catch(err){
