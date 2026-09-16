@@ -38,7 +38,7 @@ const UrlCardPreview = ({ url, onDelete }: UrlCardPreviewProps) => {
         </div>
 
         <div className="url-card-actions">
-          <CopyButton text={url?.originalUrl} className={"btn btn-secondary btn-sm"} />
+          <CopyButton text={url?.shortLink} className={"btn btn-secondary btn-sm"} />
 
           <button type="button" className="btn btn-danger btn-sm" onClick={()=>{
             onDelete(url._id)
