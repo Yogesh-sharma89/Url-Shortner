@@ -1,6 +1,4 @@
-import { toast } from "sonner";
-import FormatDate from "../../../../utils/formatDate";
-import useDeleteUrl from "../../hooks/server/useDeleteUrl";
+
 import UrlCardPreview from "./UrlCardPreview";
 
 export interface Url {
@@ -13,31 +11,8 @@ export interface Url {
   updatedAt: string;
 }
 
-const LinksSection = ({ urls }: { urls: Url[] }) => {
-  const { mutateAsync: deleteUrl, isPending } = useDeleteUrl();
-
-  const handleDeleteUrl = async (urlId: string) => {
-    const validUrlId = urlId.trim();
-    if (!validUrlId) {
-      toast.error("Invalid Url to delete");
-      return;
-    }
-
-    try {
-      await toast
-        .promise(deleteUrl(urlId), {
-          loading: "Deleting Link...",
-          success: () => {
-            return "Link deleted successfully";
-          },
-          error: (err) =>
-            err.response?.data?.message || "Failed to delete link",
-        })
-        .unwrap();
-    } catch (err) {
-      console.log("failed to delete url :", err);
-    }
-  };
+const LinksSection = ({ urls,onDelete }: { urls: Url[],onDelete:(urlId:string)=>void }) => {
+ 
 
   return (
     <section className="links-section">
@@ -59,12 +34,7 @@ const LinksSection = ({ urls }: { urls: Url[] }) => {
             <UrlCardPreview
               key={url._id}
               url={url}
-              isPending={isPending}
-              onDelete={(urlId:string)=>handleDeleteUrl(urlId)}
-              shortUrl={url.shortLink}
-              originalUrl={url.originalUrl}
-              clicks={url.clicks}
-              date={FormatDate(url.createdAt)}
+              onDelete={onDelete}
             />
           ))}
         </div>

@@ -1,16 +1,14 @@
 import { motion } from "framer-motion";
 import CopyButton from "../../../../components/CopyButton";
 import type { Url } from "./LinksSection";
-import { Loader, Loader2Icon } from "lucide-react";
 import FormatDate from "../../../../utils/formatDate";
 
 interface UrlCardPreviewProps {
   url: Url;
-  isPending: boolean;
-  onDelete: (urlId: string) => Promise<void>;
+  onDelete: (urlId: string) =>void;
 }
 
-const UrlCardPreview = ({ url, isPending, onDelete }: UrlCardPreviewProps) => {
+const UrlCardPreview = ({ url, onDelete }: UrlCardPreviewProps) => {
   return (
     <motion.article
       className="url-card"
@@ -42,13 +40,11 @@ const UrlCardPreview = ({ url, isPending, onDelete }: UrlCardPreviewProps) => {
         <div className="url-card-actions">
           <CopyButton text={url?.originalUrl} className={"btn btn-secondary btn-sm"} />
 
-          <button type="button" className="btn btn-danger btn-sm" onClick={()=>onDelete(url._id)}>
-            {
-                isPending ? 
-                <Loader2Icon className="size-4 animate-spin"/>
-                :
-                "Delete"
-            }
+          <button type="button" className="btn btn-danger btn-sm" onClick={()=>{
+            onDelete(url._id)
+          }}>
+            Delete
+            
           </button>
         </div>
       </div>
