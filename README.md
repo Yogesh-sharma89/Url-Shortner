@@ -36,23 +36,6 @@ The project is divided into separate **frontend** and **backend** applications w
 
 ---
 
-## 🖥️ Preview
-
-> Add your project screenshots here.
-
-### 🏠 Home Page
-
-<p align="center">
-  <img src="file:///C:/Users/demot/OneDrive/Pictures/Screenshots/Screenshot%202026-09-16%20205842.png" alt="Shorten Home Page" width="900" />
-</p>
-
-### 🔗 Generated Short Links
-
-<p align="center">
-  <img src="file:///C:/Users/demot/OneDrive/Pictures/Screenshots/Screenshot%202026-09-16%20205842.pngg" alt="Generated Short Links" width="900" />
-</p>
-
-> Replace the image paths above with your actual screenshots.
 
 ---
 
