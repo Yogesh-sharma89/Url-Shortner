@@ -95,7 +95,7 @@ export default function ErrorPage({
       </div>
 
       {/* ---------- Content ---------- */}
-      <span className="block mb-3 font-mono text-(length:--font-size-sm) font-medium tracking-[0.08em] text-(--text-muted) animate-[error-rise_620ms_ease-out_380ms_both] motion-reduce:animate-none">
+      <span className="block mb-3 font-mono text-(--font-size-sm) font-medium tracking-[0.08em] text-(--text-muted) animate-[error-rise_620ms_ease-out_380ms_both] motion-reduce:animate-none">
         {resolved.code}
       </span>
 
@@ -103,7 +103,7 @@ export default function ErrorPage({
         {resolved.title}
       </h1>
 
-      <p className="max-w-[44ch] mb-8 text-(length:--font-size-md) leading-[1.7] text-(--text-secondary) animate-[error-rise_620ms_ease-out_540ms_both] motion-reduce:animate-none">
+      <p className="max-w-[44ch] mb-8 text-(--font-size-md) leading-[1.7] text-(--text-secondary) animate-[error-rise_620ms_ease-out_540ms_both] motion-reduce:animate-none">
         {resolved.description}
       </p>
 
@@ -133,15 +133,13 @@ export default function ErrorPage({
       </div>
 
       {resolved.detail && (
-        <p className="max-w-full mt-8 px-4 py-3 rounded-md border border-(--border-primary) bg-(--bg-tertiary) font-mono text-(length:--font-size-xs) leading-[1.35] text-(--text-tertiary) wrap-anywhere animate-[error-rise_620ms_ease-out_700ms_both] motion-reduce:animate-none">
+        <p className="max-w-full mt-8 px-4 py-3 rounded-md border border-(--border-primary) bg-(--bg-tertiary) font-mono text-(--font-size-xs) leading-[1.35] text-(--text-tertiary) wrap-anywhere animate-[error-rise_620ms_ease-out_700ms_both] motion-reduce:animate-none">
           {resolved.detail}
         </p>
       )}
     </main>
   );
 }
-
-
 
 const KEYFRAMES = `
 .error-glow {

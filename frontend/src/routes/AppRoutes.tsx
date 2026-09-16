@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router"
 import HomePage from "../features/Home/ui/pages/HomePage"
 import { lazy, Suspense } from "react"
-import Loader from "../components/ui/Loader"
+import FullScreenLoader from "../components/ui/Loader";
 
 const ErrorPage = lazy(()=>import("../features/Home/ui/components/ErrorPage"));
 
@@ -15,7 +15,7 @@ const AppRoutes = ()=>{
         },
         {
             path:'/home',
-            element:<Suspense fallback={<Loader/>}>
+            element:<Suspense fallback={<FullScreenLoader/>}>
                 <HomePage/>
             </Suspense>,
             errorElement:<ErrorPage/>

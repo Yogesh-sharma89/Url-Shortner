@@ -1,51 +1,49 @@
-import { motion } from "framer-motion";
-import CopyButton from "../../../../components/CopyButton";
+
+import useCreateForm from "../../hooks/ui/useCreateForm";
+import { FormError } from "./FormError";
+import { Loader2Icon } from "lucide-react";
 
 const UrlShortenSection = () => {
 
+  const {handleSubmit,onSubmit,isPending,errors,register,url}  = useCreateForm();
+
+
+  const isInputEmpty = !url || !url.trim();
 
   return (
     <section className="container">
         
-      <div className="shorten-form">
+      <form className="shorten-form" onSubmit={handleSubmit(onSubmit)}>
         <div className="shorten-form-row">
+          
           <input
             type="url"
-            className="input"
+            disabled={isPending }
+            className={`input ${errors.originalUrl ? "input-error":""}`}
             placeholder="Paste your long URL here..."
+            {...register("originalUrl")}
           />
 
-          <button type="button" className="btn btn-primary shorten-form-button">
-            Shorten URL
+          <button  disabled={isInputEmpty || isPending} className="btn disabled:cursor-not-allowed btn-primary shorten-form-button">
+            {
+              isPending ? <Loader2Icon className="size-4.5 animate-spin"/>
+              :
+              "Shorten URL"
+            }
           </button>
         </div>
-      </div>
+
+        {
+          errors.originalUrl && <FormError message={errors.originalUrl?.message}/>
+        }
+
+      </form>
+
+       
 
       {/* Temporary visual result */}
 
-      <motion.div
-        className="result-card"
-        initial={{
-          opacity: 0,
-          y: 12,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          duration: 0.35,
-          delay: 0.2,
-        }}
-      >
-        <div className="result-card-content">
-          <span className="result-url">shorten.app/aZ3kP9</span>
-
-          <div className="result-actions">
-           <CopyButton text="shorten.app/aZ3kP9" className="btn btn-primary btn-sm"/>
-          </div>
-        </div>
-      </motion.div>
+      
     </section>
   );
 };

@@ -6,10 +6,10 @@ const useGetUrls = () => {
     return useQuery({
         queryKey:["urls"],
         queryFn:GetAllUrlsApi,
-        staleTime:1*60*60*1000, // 1hour,
-        gcTime:0.5*60*60*1000, // half-hour 
-        refetchOnWindowFocus:false,
-        retry:1
+         
+        refetchOnWindowFocus:true,
+        refetchOnReconnect:true,
+        refetchOnMount:true
     })
 }
 
