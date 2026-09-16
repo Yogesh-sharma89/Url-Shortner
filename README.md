@@ -1,4 +1,4 @@
-# 🔗 Shorten — URL Shortener
+<img width="959" height="468" alt="image" src="https://github.com/user-attachments/assets/7fc93866-60de-4ec5-a3d6-2c453aa9f085" /># 🔗 Shorten — URL Shortener
 
 <p align="center">
   <strong>Simple. Fast. Shareable.</strong>
@@ -43,13 +43,13 @@ The project is divided into separate **frontend** and **backend** applications w
 ### 🏠 Home Page
 
 <p align="center">
-  <img src="./screenshots/home.png" alt="Shorten Home Page" width="900" />
+  <img src="file:///C:/Users/demot/OneDrive/Pictures/Screenshots/Screenshot%202026-09-16%20205842.png" alt="Shorten Home Page" width="900" />
 </p>
 
 ### 🔗 Generated Short Links
 
 <p align="center">
-  <img src="./screenshots/links.png" alt="Generated Short Links" width="900" />
+  <img src="file:///C:/Users/demot/OneDrive/Pictures/Screenshots/Screenshot%202026-09-16%20205842.pngg" alt="Generated Short Links" width="900" />
 </p>
 
 > Replace the image paths above with your actual screenshots.
