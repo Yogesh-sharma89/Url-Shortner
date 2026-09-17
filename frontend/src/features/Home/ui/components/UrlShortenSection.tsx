@@ -5,10 +5,7 @@ import { Loader2Icon } from "lucide-react";
 
 const UrlShortenSection = () => {
 
-  const {handleSubmit,onSubmit,isPending,errors,register,url}  = useCreateForm();
-
-
-  const isInputEmpty = !url || !url.trim();
+  const {handleSubmit,onSubmit,isPending,errors,register,isInputEmpty}  = useCreateForm();
 
   return (
     <section className="container">
