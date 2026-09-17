@@ -22,7 +22,7 @@ const useCreateForm = () => {
         defaultValue:""
     })
 
-    const isInputEmpty = !url.trim();
+    const isInputEmpty = url.trim()==="";
 
     const {mutateAsync:CreateUrlMutation,isPending} = useCreateUrl();
 
