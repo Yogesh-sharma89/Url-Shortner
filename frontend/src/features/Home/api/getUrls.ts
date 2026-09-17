@@ -4,7 +4,6 @@ const GetAllUrlsApi = async()=>{
     try{
 
         const res = await api.get("/");
-        console.log(res.data.urls)
         return res.data.urls;
 
     }catch(err){
