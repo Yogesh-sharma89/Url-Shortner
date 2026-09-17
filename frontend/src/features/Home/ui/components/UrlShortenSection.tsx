@@ -1,7 +1,7 @@
 
 import useCreateForm from "../../hooks/ui/useCreateForm";
 import { FormError } from "./FormError";
-import { Loader2Icon } from "lucide-react";
+import { Loader } from "lucide-react";
 
 const UrlShortenSection = () => {
 
@@ -23,7 +23,7 @@ const UrlShortenSection = () => {
 
           <button  disabled={isInputEmpty || isPending} className="btn disabled:cursor-not-allowed btn-primary shorten-form-button">
             {
-              isPending ? <Loader2Icon className="size-4.5 animate-spin"/>
+              isPending ? <Loader className="size-4.5 animate-spin"/>
               :
               "Shorten URL"
             }

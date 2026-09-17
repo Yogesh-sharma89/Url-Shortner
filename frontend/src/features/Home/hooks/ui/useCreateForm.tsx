@@ -7,22 +7,25 @@ import { toast } from "sonner";
 
 const useCreateForm = () => {
   
-    const {control,handleSubmit,reset,register,formState:{errors}} = useForm<UrlFormValues>({
+    const {control,handleSubmit,reset,setValue,register,formState:{errors}} = useForm<UrlFormValues>({
 
         resolver:zodResolver(clientUrlSchema), //connect zod with react-hook-form ,
         defaultValues:{
             originalUrl:""
         },
-        mode:"onChange"
+        mode:"onChange",
+        reValidateMode:"onChange"
     })
 
     const url = useWatch({
         control,
-        name:"originalUrl",
+        name:"originalUrl", 
         defaultValue:""
     })
 
+
     const isInputEmpty = url.trim()==="";
+
 
     const {mutateAsync:CreateUrlMutation,isPending} = useCreateUrl();
 
@@ -33,7 +36,8 @@ const useCreateForm = () => {
             await toast.promise(CreateUrlMutation(data.originalUrl),{
                 loading:"Shortening your url...",
                 success:()=>{
-                    reset();
+                    setValue("originalUrl","");
+                   reset();
                     return "Url shorten successfully"
                 },
                 error:(err)=> err.response?.data?.message || "Failed to shorten url"
